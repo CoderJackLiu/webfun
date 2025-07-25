@@ -953,6 +953,32 @@ function showLoadingState(isLoading) {
 }
 
 /**
+ * 生成模拟股票数据
+ * @returns {Object} 包含各行业股票数据的对象
+ */
+function generateMockStockData() {
+    const data = {};
+    
+    for (const sector of Object.keys(stockSectors)) {
+        data[sector] = stockSectors[sector].map(stock => {
+            // 生成随机收益率，范围在-8%到+8%之间
+            const randomReturn = (Math.random() - 0.5) * 16;
+            const basePrice = 10 + Math.random() * 90; // 10-100之间的基础价格
+            
+            return {
+                name: stock.name,
+                code: stock.code,
+                return: randomReturn,
+                currentPrice: basePrice + (basePrice * randomReturn / 100),
+                yesterdayClose: basePrice
+            };
+        });
+    }
+    
+    return data;
+}
+
+/**
  * 初始化股票热力图
  */
 async function initializeStockHeatmap() {
@@ -960,8 +986,8 @@ async function initializeStockHeatmap() {
         // 显示加载状态
         showLoadingState(true);
         
-        // 获取并渲染初始数据
-        const stockData = await generateStockData();
+        // 直接使用模拟数据，避免跨域问题
+        const stockData = generateMockStockData();
         renderStockHeatmap(stockData);
         updateLastUpdateTime();
         
@@ -985,7 +1011,7 @@ async function initializeStockHeatmap() {
             try {
                 showLoadingState(true);
                 
-                const newStockData = await generateStockData();
+                const newStockData = generateMockStockData();
                 renderStockHeatmap(newStockData);
                 updateLastUpdateTime();
                 
@@ -1075,6 +1101,7 @@ window.debugStock = {
 // 将股票热力图相关函数导出到全局对象
 window.StockHeatmap = {
     generateStockData,
+    generateMockStockData,
     renderStockHeatmap,
     initializeStockHeatmap,
     updateLastUpdateTime,
