@@ -285,6 +285,159 @@ body {
     }
 }
 
+/* 刷新按钮现代化样式 */
+#refreshData {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 16px rgba(102, 126, 234, 0.3);
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#refreshData::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+#refreshData:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    background: linear-gradient(135deg, #764ba2, #667eea);
+}
+
+#refreshData:hover::before {
+    left: 100%;
+}
+
+#refreshData:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 16px rgba(102, 126, 234, 0.3);
+}
+
+/* 加载状态样式 */
+.loading {
+    position: relative;
+    pointer-events: none;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top: 2px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 股票热力图标题样式 */
+.stocks-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+}
+
+.stocks-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    border-radius: 2px;
+}
+
+/* 数据更新提示动画 */
+@keyframes dataUpdate {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+.data-updated {
+    animation: dataUpdate 2s ease-in-out;
+}
+
+/* 股票项目点击效果 */
+.stock-item:active {
+    transform: scale(0.95) translateY(-2px);
+    transition: transform 0.1s ease;
+}
+
+/* 扇形区域特殊效果 */
+.sector:nth-child(odd) {
+    animation-delay: 0.1s;
+}
+
+.sector:nth-child(even) {
+    animation-delay: 0.2s;
+}
+
+/* 进入动画 */
+@keyframes sectorFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.sector {
+    animation: sectorFadeIn 0.6s ease-out forwards;
+}
+
+/* 高性能模糊效果 */
+.backdrop-blur {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
 .scroll-indicator {
     position: absolute;
     bottom: 2rem;
@@ -943,228 +1096,512 @@ body {
     background: linear-gradient(45deg, #764ba2, #667eea);
 }
 
-/* 股票热力图样式 */
+/* 股票热力图样式 - 全新现代化设计 */
 .stocks-content {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
+    padding: 0 1rem;
 }
 
 .stocks-controls {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 2rem;
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
+    margin-bottom: 3rem;
+    padding: 1.5rem 2rem;
+    background: linear-gradient(135deg, rgba(116, 75, 162, 0.15), rgba(102, 126, 234, 0.15));
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.stocks-controls::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
 }
 
 .last-update {
-    color: #ccc;
-    font-size: 0.9rem;
+    color: #e0e0e0;
+    font-size: 1rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.last-update::before {
+    content: '🕒';
+    font-size: 1.2rem;
 }
 
 .heatmap-container {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
-    padding: 2rem;
-    margin-bottom: 2rem;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg, rgba(30, 30, 30, 0.9), rgba(20, 20, 20, 0.95));
+    border-radius: 25px;
+    padding: 3rem;
+    margin-bottom: 3rem;
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.heatmap-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(116, 75, 162, 0.8), rgba(102, 126, 234, 0.8), transparent);
 }
 
 .stock-heatmap {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 10px;
-    min-height: 600px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    min-height: 700px;
+    padding: 1rem;
 }
 
 .sector {
-    border-radius: 8px;
-    padding: 10px;
+    border-radius: 16px;
+    padding: 20px;
     position: relative;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.sector::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+    border-radius: 16px 16px 0 0;
 }
 
 .sector:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
 .sector-title {
-    font-size: 1rem;
-    font-weight: bold;
-    color: white;
-    margin-bottom: 10px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 16px;
     text-align: center;
-    background: rgba(0, 0, 0, 0.3);
-    padding: 5px;
-    border-radius: 5px;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(116, 75, 162, 0.2));
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+.sector-title::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    animation: titleShimmer 2s infinite;
+}
+
+@keyframes titleShimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
 }
 
 .stocks-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-    gap: 5px;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 12px;
 }
 
 .stock-item {
-    padding: 8px 4px;
-    border-radius: 4px;
+    padding: 16px 12px;
+    border-radius: 12px;
     text-align: center;
     cursor: pointer;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(5px);
+}
+
+.stock-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.stock-item:hover::before {
+    opacity: 1;
 }
 
 .stock-item:hover {
-    transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transform: scale(1.08) translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.3);
+    z-index: 10;
 }
 
 .stock-name {
-    font-size: 0.7rem;
-    font-weight: bold;
-    color: white;
-    margin-bottom: 2px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 6px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 2;
+    letter-spacing: 0.5px;
 }
 
 .stock-return {
-    font-size: 0.6rem;
-    font-weight: bold;
-    color: white;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 2;
+    padding: 4px 8px;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    min-width: 60px;
 }
 
-/* 股票热力图颜色样式 - 9级颜色系统 (-4% 到 +4%) - 参照图片颜色 */
+/* 股票热力图颜色样式 - 红涨绿跌传统配色 */
 .positive-4 {
-    background: #ff4444;
-    animation: pulse-positive 2s infinite;
+    background: linear-gradient(135deg, #ff1744, #d50000);
+    animation: pulse-positive 3s infinite;
+    box-shadow: 0 0 20px rgba(255, 23, 68, 0.4);
 }
 
 .positive-3 {
-    background: #ff6666;
+    background: linear-gradient(135deg, #ff4569, #e53e3e);
+    box-shadow: 0 0 15px rgba(255, 69, 105, 0.3);
 }
 
 .positive-2 {
-    background: #ff8888;
+    background: linear-gradient(135deg, #ff6b6b, #ff5252);
+    box-shadow: 0 0 10px rgba(255, 107, 107, 0.3);
 }
 
 .positive-1 {
-    background: #ffaaaa;
+    background: linear-gradient(135deg, #ff8a80, #ff7979);
+    box-shadow: 0 0 8px rgba(255, 138, 128, 0.2);
 }
 
 .neutral {
-    background: #666666;
+    background: linear-gradient(135deg, #607d8b, #455a64);
+    box-shadow: 0 0 5px rgba(96, 125, 139, 0.2);
 }
 
 .negative-1 {
-    background: #aaffaa;
+    background: linear-gradient(135deg, #81c784, #66bb6a);
+    box-shadow: 0 0 8px rgba(129, 199, 132, 0.2);
 }
 
 .negative-2 {
-    background: #88ff88;
+    background: linear-gradient(135deg, #4caf50, #43a047);
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
 }
 
 .negative-3 {
-    background: #66ff66;
+    background: linear-gradient(135deg, #2e7d32, #388e3c);
+    box-shadow: 0 0 15px rgba(46, 125, 50, 0.3);
 }
 
 .negative-4 {
-    background: #44ff44;
-    animation: pulse-negative 2s infinite;
+    background: linear-gradient(135deg, #1b5e20, #2e7d32);
+    animation: pulse-negative 3s infinite;
+    box-shadow: 0 0 20px rgba(27, 94, 32, 0.4);
 }
 
-/* 动画效果 */
+/* 增强的动画效果 - 红涨绿跌配色 */
 @keyframes pulse-positive {
-    0%, 100% { box-shadow: 0 0 5px rgba(0, 255, 136, 0.5); }
-    50% { box-shadow: 0 0 20px rgba(0, 255, 136, 0.8); }
+    0%, 100% { 
+        box-shadow: 0 0 20px rgba(255, 23, 68, 0.4), 0 0 40px rgba(255, 23, 68, 0.2);
+        transform: scale(1);
+    }
+    50% { 
+        box-shadow: 0 0 30px rgba(255, 23, 68, 0.6), 0 0 60px rgba(255, 23, 68, 0.3);
+        transform: scale(1.02);
+    }
 }
 
 @keyframes pulse-negative {
-    0%, 100% { box-shadow: 0 0 5px rgba(239, 68, 68, 0.5); }
-    50% { box-shadow: 0 0 20px rgba(239, 68, 68, 0.8); }
+    0%, 100% { 
+        box-shadow: 0 0 20px rgba(27, 94, 32, 0.4), 0 0 40px rgba(27, 94, 32, 0.2);
+        transform: scale(1);
+    }
+    50% { 
+        box-shadow: 0 0 30px rgba(27, 94, 32, 0.6), 0 0 60px rgba(27, 94, 32, 0.3);
+        transform: scale(1.02);
+    }
 }
 
-/* 图例样式 */
+/* 现代化图例样式 */
 .legend {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 1rem;
-    padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(116, 75, 162, 0.1), rgba(102, 126, 234, 0.1));
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     justify-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.legend::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(116, 75, 162, 0.6), rgba(102, 126, 234, 0.6), transparent);
 }
 
 .legend-item {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    color: #ccc;
-    font-size: 0.9rem;
+    gap: 0.8rem;
+    color: #e0e0e0;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.legend-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .legend-color {
-    width: 20px;
-    height: 20px;
-    border-radius: 4px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    width: 24px;
+    height: 24px;
+    border-radius: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
 }
 
-/* 响应式设计 */
+.legend-color::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: legendShimmer 2s infinite;
+}
+
+@keyframes legendShimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* 现代化响应式设计 */
+@media (max-width: 1024px) {
+    .stocks-content {
+        padding: 0 0.5rem;
+    }
+    
+    .stock-heatmap {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 16px;
+    }
+    
+    .sector {
+        padding: 16px;
+    }
+    
+    .sector-title {
+        font-size: 1.1rem;
+        padding: 10px 14px;
+    }
+}
+
 @media (max-width: 768px) {
     .stocks-controls {
         flex-direction: column;
-        gap: 1rem;
+        gap: 1.5rem;
         text-align: center;
+        padding: 1.2rem 1.5rem;
     }
     
     .stock-heatmap {
         grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0.5rem;
     }
     
-    .legend {
+    .sector {
+        padding: 20px;
+    }
+    
+    .stocks-grid {
         grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-        gap: 0.8rem;
-        padding: 1rem;
+        gap: 10px;
     }
     
-    .legend-item {
+    .stock-item {
+        padding: 12px 8px;
+    }
+    
+    .stock-name {
         font-size: 0.8rem;
     }
     
+    .stock-return {
+        font-size: 0.7rem;
+        padding: 3px 6px;
+    }
+    
+    .legend {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 1rem;
+        padding: 1.5rem;
+    }
+    
+    .legend-item {
+        font-size: 0.9rem;
+        padding: 6px 10px;
+    }
+    
     .legend-color {
-        width: 16px;
-        height: 16px;
+        width: 20px;
+        height: 20px;
     }
     
     .heatmap-container {
-        padding: 1rem;
+        padding: 2rem;
+        border-radius: 20px;
     }
 }
 
 @media (max-width: 480px) {
+    .stocks-content {
+        padding: 0;
+    }
+    
+    .stocks-controls {
+        margin-bottom: 2rem;
+        padding: 1rem;
+        border-radius: 15px;
+    }
+    
+    .heatmap-container {
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-radius: 15px;
+    }
+    
+    .stock-heatmap {
+        min-height: 500px;
+        padding: 0;
+    }
+    
+    .sector {
+        padding: 15px;
+        border-radius: 12px;
+    }
+    
+    .sector-title {
+        font-size: 1rem;
+        padding: 8px 12px;
+        margin-bottom: 12px;
+    }
+    
+    .stocks-grid {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        gap: 8px;
+    }
+    
+    .stock-item {
+        padding: 10px 6px;
+        border-radius: 8px;
+    }
+    
+    .stock-name {
+        font-size: 0.75rem;
+        margin-bottom: 4px;
+    }
+    
+    .stock-return {
+        font-size: 0.65rem;
+        padding: 2px 4px;
+        min-width: 50px;
+    }
+    
     .legend {
         grid-template-columns: repeat(3, 1fr);
-        gap: 0.5rem;
-        padding: 0.8rem;
+        gap: 0.8rem;
+        padding: 1rem;
+        border-radius: 15px;
     }
     
     .legend-item {
-        font-size: 0.7rem;
+        flex-direction: column;
+        font-size: 0.75rem;
         text-align: center;
+        padding: 6px 4px;
+        gap: 0.4rem;
     }
     
     .legend-color {
-        width: 14px;
-        height: 14px;
-        margin: 0 auto 4px;
+        width: 18px;
+        height: 18px;
+        border-radius: 6px;
     }
 }
