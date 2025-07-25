@@ -31,6 +31,9 @@
                     <a href="#games" class="nav-link" data-section="games">游戏</a>
                 </li>
                 <li class="nav-item">
+                    <a href="#stocks" class="nav-link" data-section="stocks">股票热力图</a>
+                </li>
+                <li class="nav-item">
                     <a href="#contact" class="nav-link" data-section="contact">联系</a>
                 </li>
             </ul>
@@ -321,6 +324,60 @@
                         <h3>记忆翻牌</h3>
                         <p>翻开卡片找到相同的图案，训练你的记忆力</p>
                         <button class="play-btn">开始游戏</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 股票热力图部分 -->
+        <section id="stocks" class="section">
+            <div class="container">
+                <h2 class="section-title">股票收益率热力图</h2>
+                <div class="stocks-content">
+                    <div class="stocks-controls">
+                        <button id="refreshData" class="btn btn-primary">刷新数据</button>
+                        <span class="last-update">最后更新: <span id="lastUpdateTime"></span></span>
+                    </div>
+                    <div class="heatmap-container">
+                        <div id="stockHeatmap" class="stock-heatmap"></div>
+                    </div>
+                    <div class="legend">
+                        <div class="legend-item">
+                            <div class="legend-color positive-4"></div>
+                            <span>+4%</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color positive-3"></div>
+                            <span>+3%</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color positive-2"></div>
+                            <span>+2%</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color positive-1"></div>
+                            <span>+1%</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color neutral"></div>
+                            <span>0%</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color negative-1"></div>
+                            <span>-1%</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color negative-2"></div>
+                            <span>-2%</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color negative-3"></div>
+                            <span>-3%</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color negative-4"></div>
+                            <span>-4%</span>
+                        </div>
                     </div>
                 </div>
             </div>

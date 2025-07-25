@@ -942,3 +942,229 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(45deg, #764ba2, #667eea);
 }
+
+/* 股票热力图样式 */
+.stocks-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.stocks-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
+
+.last-update {
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+.heatmap-container {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stock-heatmap {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    min-height: 600px;
+}
+
+.sector {
+    border-radius: 8px;
+    padding: 10px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sector:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.sector-title {
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 10px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.stocks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 5px;
+}
+
+.stock-item {
+    padding: 8px 4px;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stock-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.stock-name {
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 2px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.stock-return {
+    font-size: 0.6rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* 股票热力图颜色样式 - 9级颜色系统 (-4% 到 +4%) - 参照图片颜色 */
+.positive-4 {
+    background: #ff4444;
+    animation: pulse-positive 2s infinite;
+}
+
+.positive-3 {
+    background: #ff6666;
+}
+
+.positive-2 {
+    background: #ff8888;
+}
+
+.positive-1 {
+    background: #ffaaaa;
+}
+
+.neutral {
+    background: #666666;
+}
+
+.negative-1 {
+    background: #aaffaa;
+}
+
+.negative-2 {
+    background: #88ff88;
+}
+
+.negative-3 {
+    background: #66ff66;
+}
+
+.negative-4 {
+    background: #44ff44;
+    animation: pulse-negative 2s infinite;
+}
+
+/* 动画效果 */
+@keyframes pulse-positive {
+    0%, 100% { box-shadow: 0 0 5px rgba(0, 255, 136, 0.5); }
+    50% { box-shadow: 0 0 20px rgba(0, 255, 136, 0.8); }
+}
+
+@keyframes pulse-negative {
+    0%, 100% { box-shadow: 0 0 5px rgba(239, 68, 68, 0.5); }
+    50% { box-shadow: 0 0 20px rgba(239, 68, 68, 0.8); }
+}
+
+/* 图例样式 */
+.legend {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    justify-items: center;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+.legend-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .stocks-controls {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .stock-heatmap {
+        grid-template-columns: 1fr;
+    }
+    
+    .legend {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 0.8rem;
+        padding: 1rem;
+    }
+    
+    .legend-item {
+        font-size: 0.8rem;
+    }
+    
+    .legend-color {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .heatmap-container {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .legend {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
+        padding: 0.8rem;
+    }
+    
+    .legend-item {
+        font-size: 0.7rem;
+        text-align: center;
+    }
+    
+    .legend-color {
+        width: 14px;
+        height: 14px;
+        margin: 0 auto 4px;
+    }
+}
