@@ -1096,11 +1096,17 @@ body {
     background: linear-gradient(45deg, #764ba2, #667eea);
 }
 
+/* 为stocks section创建全宽容器 */
+#stocks .container {
+    max-width: none;
+    width: 100%;
+    padding: 0;
+}
+
 /* 股票热力图样式 - 全新现代化设计 */
 .stocks-content {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 1rem;
+    width: 100%;
+    margin: 0;
 }
 
 .stocks-controls {
@@ -1151,13 +1157,14 @@ body {
 .heatmap-container {
     background: linear-gradient(135deg, rgba(30, 30, 30, 0.9), rgba(20, 20, 20, 0.95));
     border-radius: 25px;
-    padding: 3rem;
+    padding: 2rem;
     margin-bottom: 3rem;
     backdrop-filter: blur(20px);
     border: 2px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
     position: relative;
     overflow: hidden;
+    width: 100%;
 }
 
 .heatmap-container::before {
@@ -1172,10 +1179,11 @@ body {
 
 .stock-heatmap {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    min-height: 700px;
-    padding: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    min-height: 800px;
+    padding: 0;
+    width: 100%;
 }
 
 .sector {
@@ -1454,16 +1462,17 @@ body {
 /* 现代化响应式设计 */
 @media (max-width: 1024px) {
     .stocks-content {
-        padding: 0 0.5rem;
+        padding: 0;
     }
     
     .stock-heatmap {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 16px;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        min-height: 750px;
     }
     
     .sector {
-        padding: 16px;
+        padding: 18px;
     }
     
     .sector-title {
@@ -1473,6 +1482,10 @@ body {
 }
 
 @media (max-width: 768px) {
+    .stocks-content {
+        padding: 0;
+    }
+    
     .stocks-controls {
         flex-direction: column;
         gap: 1.5rem;
@@ -1481,13 +1494,14 @@ body {
     }
     
     .stock-heatmap {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 0.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 18px;
+        min-height: 700px;
+        padding: 0;
     }
     
     .sector {
-        padding: 20px;
+        padding: 16px;
     }
     
     .stocks-grid {
@@ -1525,8 +1539,9 @@ body {
     }
     
     .heatmap-container {
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 20px;
+        width: 100%;
     }
 }
 
