@@ -19,8 +19,10 @@ document.addEventListener('DOMContentLoaded', function() {
     updateCurrentTime();
     setInterval(updateCurrentTime, 1000);
     
-    // 初始化股票热力图
-    initializeStockHeatmap();
+    // 延迟初始化股票热力图，确保DOM完全加载
+    setTimeout(() => {
+        initializeStockHeatmap();
+    }, 100);
     
     // 显示首页
     showSection('home');
@@ -122,6 +124,17 @@ function showSection(sectionId) {
         
         // 触发进入动画
         triggerSectionAnimations(sectionId);
+        
+        // 如果是股票部分，确保热力图被渲染
+        if (sectionId === 'stocks') {
+            setTimeout(() => {
+                const heatmapContainer = document.getElementById('stockHeatmap');
+                if (heatmapContainer && (!heatmapContainer.children.length || heatmapContainer.children.length === 0)) {
+                    console.log('🔄 检测到股票热力图为空，重新初始化...');
+                    initializeStockHeatmap();
+                }
+            }, 200);
+        }
         
         setTimeout(() => {
             isAnimating = false;
@@ -982,17 +995,40 @@ function generateMockStockData() {
  * 初始化股票热力图
  */
 async function initializeStockHeatmap() {
+    console.log('🔄 开始初始化股票热力图...');
+    
     try {
+        // 检查DOM元素是否存在
+        const heatmapContainer = document.getElementById('stockHeatmap');
+        const refreshButton = document.getElementById('refreshData');
+        
+        console.log('📍 DOM检查:', {
+            heatmapContainer: !!heatmapContainer,
+            refreshButton: !!refreshButton
+        });
+        
+        if (!heatmapContainer) {
+            throw new Error('找不到stockHeatmap容器元素');
+        }
+        
         // 显示加载状态
         showLoadingState(true);
+        console.log('⏳ 显示加载状态');
         
         // 直接使用模拟数据，避免跨域问题
+        console.log('📊 生成模拟数据...');
         const stockData = generateMockStockData();
+        console.log('📊 模拟数据生成完成:', Object.keys(stockData));
+        
+        console.log('🎨 渲染热力图...');
         renderStockHeatmap(stockData);
+        
+        console.log('⏰ 更新时间...');
         updateLastUpdateTime();
         
         // 隐藏加载状态
         showLoadingState(false);
+        console.log('✅ 股票热力图初始化完成');
         
     } catch (error) {
         console.error('初始化股票热力图失败:', error);
