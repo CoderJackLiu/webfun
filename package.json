@@ -1,0 +1,23 @@
+{
+  "name": "personal-website",
+  "version": "1.0.0",
+  "description": "个人网站 - 包含个人介绍、技能展示、项目作品和小游戏合集",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "python -m http.server 8000"
+  },
+  "keywords": [
+    "personal-website",
+    "portfolio",
+    "games",
+    "web-development"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "homepage": ".",
+  "repository": {
+    "type": "git",
+    "url": "."
+  }
+}
