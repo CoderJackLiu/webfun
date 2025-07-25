@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人主页 - 创意开发者</title>
+    <link rel="stylesheet" href="personal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">DevPortfolio</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link" data-section="home">首页</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link" data-section="about">关于我</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#skills" class="nav-link" data-section="skills">技能</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link" data-section="projects">项目</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#games" class="nav-link" data-section="games">游戏</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link" data-section="contact">联系</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main class="main-content">
+        <!-- 首页部分 -->
+        <section id="home" class="section active">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="hero-title">
+                            <span class="greeting">你好，我是</span>
+                            <span class="name">开发者</span>
+                        </h1>
+                        <p class="hero-subtitle">全栈开发工程师 & 游戏开发爱好者</p>
+                        <p class="hero-description">
+                            热爱编程，专注于Web开发和游戏开发。拥有丰富的前端和后端开发经验，
+                            喜欢创造有趣的交互体验和小游戏。在这里你可以了解我的技能、项目，
+                            还可以体验我开发的各种小游戏。
+                        </p>
+                        <div class="hero-buttons">
+                            <a href="#about" class="btn btn-primary btn-large" data-section="about">了解更多</a>
+                            <a href="#games" class="btn btn-secondary btn-large" data-section="games">体验游戏</a>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="code-animation">
+                            <div class="code-line">const developer = {</div>
+                            <div class="code-line">  name: '创意开发者',</div>
+                            <div class="code-line">  skills: ['JavaScript', 'Python', 'React'],</div>
+                            <div class="code-line">  passion: '创造有趣的项目',</div>
+                            <div class="code-line">  currentTime: '<span id="current-time-hero"></span>'</div>
+                            <div class="code-line">};</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="scroll-indicator">
+                    <div class="scroll-arrow"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 关于我部分 -->
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">关于我</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p class="about-intro">
+                    我是一名充满激情的全栈开发工程师，专注于创建优雅、高效的Web应用程序。
+                    拥有多年的开发经验，熟练掌握现代Web技术栈。除了专业的Web开发工作，
+                    我还热衷于游戏开发，喜欢用代码创造有趣的交互体验。
+                </p>
+                        <div class="about-details">
+                            <div class="detail-item">
+                                <i class="fas fa-code"></i>
+                                <div>
+                                    <h3>编程经验</h3>
+                                    <p>5年以上的软件开发经验，熟练掌握多种编程语言和框架</p>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-gamepad"></i>
+                                <div>
+                                    <h3>游戏开发</h3>
+                                    <p>热爱游戏开发，创作了多款有趣的Web小游戏</p>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-lightbulb"></i>
+                                <div>
+                                    <h3>创新思维</h3>
+                                    <p>善于将创意想法转化为实际的数字产品</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">4</div>
+                            <div class="stat-label">小游戏</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">纯前端</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">10+</div>
+                            <div class="stat-label">技术栈</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">热情投入</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 技能部分 -->
+        <section id="skills" class="section">
+            <div class="container">
+                <h2 class="section-title">技能专长</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>前端开发</h3>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <i class="fab fa-html5"></i>
+                                <span>HTML5</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fab fa-css3-alt"></i>
+                                <span>CSS3</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fab fa-js-square"></i>
+                                <span>JavaScript</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fab fa-react"></i>
+                                <span>React</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fab fa-vue"></i>
+                                <span>Vue.js</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>后端开发</h3>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <i class="fab fa-node-js"></i>
+                                <span>Node.js</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fab fa-python"></i>
+                                <span>Python</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fas fa-database"></i>
+                                <span>MongoDB</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fas fa-server"></i>
+                                <span>Express</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fab fa-aws"></i>
+                                <span>AWS</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>工具 & 其他</h3>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <i class="fab fa-git-alt"></i>
+                                <span>Git</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fab fa-docker"></i>
+                                <span>Docker</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fas fa-mobile-alt"></i>
+                                <span>响应式设计</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fas fa-gamepad"></i>
+                                <span>游戏开发</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fas fa-paint-brush"></i>
+                                <span>UI/UX设计</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 项目部分 -->
+        <section id="projects" class="section">
+            <div class="container">
+                <h2 class="section-title">精选项目</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <div class="project-placeholder">🎮</div>
+                        </div>
+                        <div class="project-content">
+                            <h3>小游戏合集</h3>
+                            <p>使用纯HTML5、CSS3和JavaScript开发的小游戏合集，包含贪吃蛇、俄罗斯方块、2048和记忆翻牌等经典游戏。</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">HTML5</span>
+                                <span class="tech-tag">CSS3</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Canvas</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#games" class="project-link" data-section="games">体验游戏</a>
+                                <a href="#" class="project-link">源代码</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <div class="project-placeholder">🌐</div>
+                        </div>
+                        <div class="project-content">
+                            <h3>个人网站</h3>
+                            <p>响应式个人展示网站，采用现代化设计风格，包含个人介绍、技能展示、项目展示等模块。</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">HTML5</span>
+                                <span class="tech-tag">CSS3</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">响应式设计</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">当前网站</a>
+                                <a href="#" class="project-link">源代码</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <div class="project-placeholder">⚡</div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Web应用开发</h3>
+                            <p>专注于现代Web应用开发，使用最新的前端框架和技术栈，创建高性能、用户友好的Web应用。</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Vue.js</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">TypeScript</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">了解更多</a>
+                                <a href="#" class="project-link">联系合作</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 游戏部分 -->
+        <section id="games" class="section">
+            <div class="container">
+                <h2 class="section-title">🎮 趣味小游戏中心</h2>
+                <p class="section-subtitle">选择你喜欢的游戏开始娱乐吧！</p>
+                
+                <div class="games-grid">
+                    <div class="game-card" onclick="openGame('snake')">
+                        <div class="game-icon">🐍</div>
+                        <h3>贪吃蛇</h3>
+                        <p>经典的贪吃蛇游戏，控制蛇吃食物并避免撞墙</p>
+                        <button class="play-btn">开始游戏</button>
+                    </div>
+
+                    <div class="game-card" onclick="openGame('tetris')">
+                        <div class="game-icon">🧩</div>
+                        <h3>俄罗斯方块</h3>
+                        <p>经典的俄罗斯方块，消除完整行获得分数</p>
+                        <button class="play-btn">开始游戏</button>
+                    </div>
+
+                    <div class="game-card" onclick="openGame('2048')">
+                        <div class="game-icon">🔢</div>
+                        <h3>2048</h3>
+                        <p>滑动数字方块，合并相同数字达到2048</p>
+                        <button class="play-btn">开始游戏</button>
+                    </div>
+
+                    <div class="game-card" onclick="openGame('memory')">
+                        <div class="game-icon">🧠</div>
+                        <h3>记忆翻牌</h3>
+                        <p>翻开卡片找到相同的图案，训练你的记忆力</p>
+                        <button class="play-btn">开始游戏</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 联系部分 -->
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title">联系我</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h3>邮箱</h3>
+                                <p>developer@example.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-github"></i>
+                            <div>
+                                <h3>GitHub</h3>
+                                <p>github.com/developer</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-linkedin"></i>
+                            <div>
+                                <h3>LinkedIn</h3>
+                                <p>linkedin.com/in/developer</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h3>位置</h3>
+                                <p>中国，北京</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <input type="text" id="name" name="name" placeholder="您的姓名" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" name="email" placeholder="您的邮箱" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="subject" name="subject" placeholder="主题" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="message" name="message" placeholder="您的消息" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">发送消息</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2024 创意开发者. 保留所有权利.</p>
+                    <p>当前时间: <span id="current-time-footer"></span></p>
+                </div>
+                <div class="footer-social">
+                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="personal.js"></script>
+</body>
+</html>

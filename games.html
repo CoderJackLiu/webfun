@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>趣味小游戏 - Fun Games</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>🎮 趣味小游戏中心</h1>
+        <p>选择你喜欢的游戏开始娱乐吧！</p>
+    </header>
+
+    <main>
+        <div class="games-grid">
+            <div class="game-card" onclick="openGame('snake')">
+                <div class="game-icon">🐍</div>
+                <h3>贪吃蛇</h3>
+                <p>经典的贪吃蛇游戏，控制蛇吃食物并避免撞墙</p>
+                <button class="play-btn">开始游戏</button>
+            </div>
+
+            <div class="game-card" onclick="openGame('tetris')">
+                <div class="game-icon">🧩</div>
+                <h3>俄罗斯方块</h3>
+                <p>经典的俄罗斯方块，消除完整行获得分数</p>
+                <button class="play-btn">开始游戏</button>
+            </div>
+
+            <div class="game-card" onclick="openGame('2048')">
+                <div class="game-icon">🔢</div>
+                <h3>2048</h3>
+                <p>滑动数字方块，合并相同数字达到2048</p>
+                <button class="play-btn">开始游戏</button>
+            </div>
+
+            <div class="game-card" onclick="openGame('memory')">
+                <div class="game-icon">🧠</div>
+                <h3>记忆翻牌</h3>
+                <p>翻开卡片找到相同的图案，训练你的记忆力</p>
+                <button class="play-btn">开始游戏</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 趣味小游戏中心. 享受游戏时光！</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
